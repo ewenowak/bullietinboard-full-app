@@ -25,10 +25,10 @@ const EditPostForm = () => {
     return (
       <div>
         <h3>Edit Post</h3>
-        <PostForm action={handleSubmit} actionText="Edit Post" 
+        <PostForm action={handleSubmit} actionText="Edit Post" isEdit = {true} isAdd={false}
             title={postData.title} 
             description={postData.description} 
-            publishedDate={postData.actualizationDate} 
+            publishedDate={postData.publishedDate} 
             image={postData.image} 
             price={postData.price} 
             location={postData.location} 

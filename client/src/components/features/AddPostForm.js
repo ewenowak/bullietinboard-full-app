@@ -21,7 +21,7 @@ const AddPostForm = () => {
     return (
       <div>
         <h3>Add Post</h3>
-        <PostForm action={handleClick} actionText="Add Post" />
+        <PostForm action={handleClick} actionText="Add Post" isEdit={false} isAdd={true}/>
       </div>
     );
 };
