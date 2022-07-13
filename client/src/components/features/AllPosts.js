@@ -13,7 +13,7 @@ const AllPosts = () => {
         <>
         <Row xs={1} md={3} className="g-4">
             {postsByDate.map( post => 
-            <Col key={post.id}>
+            <Col key={post._id}>
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={post.image} />
                     <Card.Body>

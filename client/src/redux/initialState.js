@@ -43,51 +43,7 @@ const initialState = {
     ],
    
     posts: [
-        {
-            id: '1',
-            title: 'Astrology experts reading',
-            description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using',
-            publishedDate: new Date('06-08-2022'),
-            actualizationDate: new Date('06-10-2022'),
-            image: 'https://images.pexels.com/photos/7222056/pexels-photo-7222056.jpeg?auto=compress&cs=tinysrgb&w=1600',
-            price: 100,
-            location: 'All Poland',
-            user : 'user-1',
-        },
-        {
-            id: '2',
-            title: 'Cleaning places from bad energy',
-            description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using',
-            publishedDate: new Date('06-14-2022'),
-            actualizationDate: new Date('06-18-2022'),
-            image: 'https://images.pexels.com/photos/6998253/pexels-photo-6998253.jpeg?auto=compress&cs=tinysrgb&w=1600',
-            price: 200,
-            location: 'Wroclaw',
-            user : 'user-2',
-
-        },
-        {
-            id: '3',
-            title: 'Experts tarot reading',
-            description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using',
-            publishedDate: new Date('06-20-2022'),
-            actualizationDate: new Date('06-22-2022'),
-            image: 'https://images.pexels.com/photos/3088369/pexels-photo-3088369.jpeg?auto=compress&cs=tinysrgb&w=1600',
-            price: 180,
-            location: 'Warszawa',
-            user: 'user-3',
-        },
-        {
-            id: '4',
-            title: 'Kambo ceremony ',
-            description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using',
-            publishedDate: new Date('06-24-2022'),
-            actualizationDate: new Date('06-26-2022'),
-            image: 'https://images.pexels.com/photos/36020/frog-terrarium-amphibians.jpg?auto=compress&cs=tinysrgb&w=1600',
-            price: 200,
-            location: 'Poznan',
-            user: 'user-4',
-        },
+        
     ],  
     
 };
