@@ -3,14 +3,15 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch} from "react-redux";
 import { getPostById } from "../../redux/postsReducer";
 import { deletePost } from "../../redux/postsReducer";
-import { getLoggedUser,  getAdminLogged} from "../../redux/usersReducer";
+import { getLoggedUser,  getAdminLogged, getUserByPost} from "../../redux/usersReducer";
 import dateToStr from "../../utils/dateToStr";
 
 
 const Post = () => {
     const { id } = useParams();
     const postData = useSelector(state => getPostById(state, id));
-    const userLoggedData = useSelector(state => getLoggedUser(state));
+    const userLogged = useSelector(state => getLoggedUser(state));
+    const userData = useSelector(state => getUserByPost(state, postData.user));
     const userAdmin = useSelector(state => getAdminLogged(state))
   
 
@@ -36,23 +37,23 @@ const Post = () => {
                 {postData.actualizationDate &&
                     <ListGroup.Item><b>Actualization Date:</b> { dateToStr(postData.actualizationDate) } </ListGroup.Item>
                 }
-                {userLoggedData &&
+                {userData &&
                     <ListGroup.Item><b>Seller:</b>
                         <Card border="light" className="text-center" style={{ width: '40rem' }}>
-                            <Image roundedCircle variant="top" style={{ width: '10rem', height: '10rem'}} src={userLoggedData.avatar} />
+                            <Image roundedCircle variant="top" style={{ width: '10rem', height: '10rem'}} src={userData.avatar} />
                             <Card.Body>
-                                <Card.Title>{userLoggedData.login }</Card.Title>
-                                <Card.Text>{ userLoggedData.phone }</Card.Text>
+                                <Card.Title>{userData.login }</Card.Title>
+                                <Card.Text>{ userData.phone }</Card.Text>
                             </Card.Body>
                         </Card>
                     </ListGroup.Item>
                 }
             </ListGroup>
         <Card.Body>
-        {(userLoggedData.id === postData.user  || userAdmin) &&
+        {(userLogged && userLogged.id === postData.user  || userAdmin) &&
             <Button as={Link} to={"/post/edit/" + postData.id}  variant="success">Edit</Button>
         }
-        {(userLoggedData.id === postData.user || userAdmin) &&
+        {(userLogged && userLogged.id === postData.user || userAdmin) &&
             <Button variant="danger" onClick={deletedPost}>Delete</Button>
         }
         </Card.Body>

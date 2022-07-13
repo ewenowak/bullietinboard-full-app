@@ -1,7 +1,7 @@
 //selectors
 export const getLoggedUser = ({ users }) => users.find(user => user.logged === true);
 export const getLoggedUserByPostId = ({ users }, postId) => users.find(user => user.logged === true && user.id === postId)
-export const getUserByPostId = ( {users}, postId) => users.find(user => user.id === postId);
+export const getUserByPost = ( {users}, postAuthor) => users.find(user => user.id === postAuthor);
 export const getAdminLogged = ({ users }) => users.find(user => user.logged === true && user.role === 'admin');
   
 // actions

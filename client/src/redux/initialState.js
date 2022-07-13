@@ -9,7 +9,7 @@ const initialState = {
             phone: '634256781',
             email: 'e.nowak@gmail.com',
             role: 'user',
-            logged: true,
+            logged: false,
         },
         {   
             id: 'user-2',
@@ -75,7 +75,7 @@ const initialState = {
             image: 'https://images.pexels.com/photos/3088369/pexels-photo-3088369.jpeg?auto=compress&cs=tinysrgb&w=1600',
             price: 180,
             location: 'Warszawa',
-            author : 'user-3',
+            user: 'user-3',
         },
         {
             id: '4',
@@ -86,7 +86,7 @@ const initialState = {
             image: 'https://images.pexels.com/photos/36020/frog-terrarium-amphibians.jpg?auto=compress&cs=tinysrgb&w=1600',
             price: 200,
             location: 'Poznan',
-            author : 'user-4',
+            user: 'user-4',
         },
     ],  
     
