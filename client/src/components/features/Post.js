@@ -31,7 +31,7 @@ const Post = () => {
                 <Card.Text>{ postData.description }</Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroup.Item><b>Location:</b> { postData.location }</ListGroup.Item>
+                <ListGroup.Item><b>BLocation:</b> { postData.location }</ListGroup.Item>
                 <ListGroup.Item><b>Price:</b> { postData.price } $</ListGroup.Item>
                 <ListGroup.Item><b>Published Date:</b> { dateToStr(postData.publishedDate) } </ListGroup.Item>
                 {postData.actualizationDate &&
