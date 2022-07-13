@@ -1,21 +1,31 @@
 import { Card, ListGroup, Image, Button } from "react-bootstrap";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch} from "react-redux";
-import { getPostById } from "../../redux/postsReducer";
+import { getPostById, fetchGetPostById } from "../../redux/postsReducer";
 import { deletePost } from "../../redux/postsReducer";
 import { getLoggedUser,  getAdminLogged, getUserByPost} from "../../redux/usersReducer";
 import dateToStr from "../../utils/dateToStr";
-
+import { useEffect } from "react";
 
 const Post = () => {
     const { id } = useParams();
-    const postData = useSelector(state => getPostById(state, id));
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchGetPostById(id));
+      }, [dispatch, id]);
+  
+    
+    const postData = useSelector(state => getPostById(state.posts, id));
+    console.log('postData', postData)
     const userLogged = useSelector(state => getLoggedUser(state));
     const userData = useSelector(state => getUserByPost(state, postData.user));
+    console.log('user', postData.user)
     const userAdmin = useSelector(state => getAdminLogged(state))
+
   
 
-    const dispatch = useDispatch();
+
 
     const deletedPost = () => {
         dispatch(deletePost(postData.id))
@@ -31,7 +41,7 @@ const Post = () => {
                 <Card.Text>{ postData.description }</Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroup.Item><b>BLocation:</b> { postData.location }</ListGroup.Item>
+                <ListGroup.Item><b>Location:</b> { postData.location }</ListGroup.Item>
                 <ListGroup.Item><b>Price:</b> { postData.price } $</ListGroup.Item>
                 <ListGroup.Item><b>Published Date:</b> { dateToStr(postData.publishedDate) } </ListGroup.Item>
                 {postData.actualizationDate &&

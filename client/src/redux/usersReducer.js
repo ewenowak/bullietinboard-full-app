@@ -8,6 +8,8 @@ export const getAdminLogged = ({ users }) => users.find(user => user.logged === 
 const createActionName = actionName => `app/user/${actionName}`;
 const EDIT_USER = createActionName('EDIT_USER');
 
+
+
 // action creators
 export const editUser = payload => ({type: EDIT_USER, payload});
 

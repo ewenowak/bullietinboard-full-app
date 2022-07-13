@@ -1,5 +1,8 @@
 const initialState = {
-    users: [
+
+    posts: [],
+
+      users: [
         {
             id: 'user-1',
             name: 'Ewelina Nowak',
@@ -9,7 +12,7 @@ const initialState = {
             phone: '634256781',
             email: 'e.nowak@gmail.com',
             role: 'user',
-            logged: false,
+            logged: true,
         },
         {   
             id: 'user-2',
@@ -41,10 +44,7 @@ const initialState = {
             logged: false,
         },
     ],
-   
-    posts: [
-        
-    ],  
+
     
 };
 export default initialState;

@@ -6,21 +6,28 @@ import PostForm from '../features/PostForm';
 import { getLoggedUser } from '../../redux/usersReducer';
 import { getLoggedUserByPostId } from '../../redux/usersReducer';
 import NotFound from '../pages/NotFound';
+import { useEffect } from 'react';
+import { fetchGetPostById } from '../../redux/postsReducer';
 
 const EditPostForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {id} = useParams();
-  const postData = useSelector(state => getPostById(state, id));
+  const postData = useSelector(state => getPostById(state.posts, id));
   const userLogged = useSelector(state => getLoggedUser(state));
-  const userLoggedByPostId = useSelector(state => getLoggedUserByPostId(state, 'user-' + id));
+  
+ 
+  
+  useEffect(() => {
+    dispatch(fetchGetPostById(id));
+  }, [dispatch, id]);
 
-  const handleSubmit = post => {
-    dispatch(editPost({...post, id}));
+
+  const handleSubmit = (post) => {
     navigate("/");
   };
 
-  if (!userLogged || !userLoggedByPostId ) return <NotFound />;
+  if (!userLogged  ) return <NotFound />;
   else
     return (
       <div>

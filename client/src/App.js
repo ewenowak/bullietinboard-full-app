@@ -8,8 +8,13 @@ import PostAdd from "./components/pages/PostAdd";
 import PostEdit from "./components/pages/PostEdit";
 import NotFound from "./components/pages/NotFound";
 import SearchResults from "./components/features/SearchResults";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchGetAllPosts } from "./redux/postsReducer";
+
 
 const App = () => {
+  
   return (
     <main>
       <NavBar />

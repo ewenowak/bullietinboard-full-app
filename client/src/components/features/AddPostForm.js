@@ -2,17 +2,17 @@ import React from 'react';
 import PostForm from '../features/PostForm';
 import { getLoggedUser } from '../../redux/usersReducer';
 import {useDispatch, useSelector} from 'react-redux';
-import {addPost} from '../../redux/postsReducer';
+import {fetchAddPost} from '../../redux/postsReducer';
 import {useNavigate} from 'react-router-dom';
-import { ListGroup, Card, Image } from 'react-bootstrap';
 import NotFound from '../pages/NotFound';
+
 
 const AddPostForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userLogged = useSelector(state => getLoggedUser(state));
   const handleClick = post => {
-    dispatch(addPost(post));
+    dispatch(fetchAddPost(post));
     navigate('/');
   };
 

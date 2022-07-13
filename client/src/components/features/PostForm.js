@@ -26,7 +26,7 @@ const PostForm = ({action, actionText, isEdit, isAdd, ...props}) => {
   const [actualizationDateError, setActualizationDateError] = useState(false);
   const onSubmit = () => {
     setPublishedDateError(!publishedDate);
-    setActualizationDate(!actualizationDate);
+    setActualizationDateError(!actualizationDate);
     if (publishedDate) {
       action({title, description, publishedDate, price, location });
     }
@@ -61,12 +61,12 @@ const PostForm = ({action, actionText, isEdit, isAdd, ...props}) => {
         } 
         <Form.Group className="mb-3">
           <Form.Label>Price</Form.Label>
-          <Form.Control {...register('price', {required: true})} value={price} onChange={e => setPrice(e.target.value)} type="text" placeholder="Enter price" />
+          <Form.Control {...register('price', {required: false})} value={price} onChange={e => setPrice(e.target.value)} type="text" placeholder="Enter price" />
           {errors.price && <small className="d-block form-text text-danger mt-1">This field is required</small>}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Location</Form.Label>
-          <Form.Control {...register('location', {required: true})} value={location} onChange={e => setLocation(e.target.value)} type="text" placeholder="Enter location" />
+          <Form.Control {...register('location', {required: false})} value={location} onChange={e => setLocation(e.target.value)} type="text" placeholder="Enter location" />
           {errors.location && <small className="d-block form-text text-danger mt-1">This field is required</small>}
         </Form.Group>
         <ListGroup.Item><b>Seller:</b>
